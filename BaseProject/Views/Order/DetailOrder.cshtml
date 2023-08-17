@@ -20,7 +20,7 @@
                             {
                                 <div class="col-12">
                                     <label class="form-label">주문자</label>
-                                    <div class="form-control">@Model.Customer</div>
+                                    <input class="form-control" name="Customer" value="@Model.Customer"/>
                                 </div>
                             }
                             else
@@ -94,7 +94,7 @@
                             @if (Model.Status != Order_StatusCategory.작업완료)
                             {
                                 <div class="col-12">
-                                    <a class="btn btn-primary px-4" href="/order/read">주문 수정</a>
+                                    <button class="btn btn-primary px-4">주문 수정</button>
                                 </div>
                             }
                             else

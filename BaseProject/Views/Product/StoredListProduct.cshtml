@@ -15,7 +15,7 @@
                     <div class="border p-3 rounded">
                         <div><h2>상품명 : @item.ProductName</h2></div>
                         <div><h3>입고 갯수 : @item.StockedCount</h3></div>
-                        @*<div><h3>출고 갯수 : @item.StoredCount</h3>*@
+                            <div><h3>출고 갯수 : @item.StoredCount</h3></div>
                     </div>
                 </div>
                 }
@@ -34,9 +34,9 @@
     <div>입고 갯수 : @item.StockedCount</div>
     <div>출고 갯수 : @item.StoredCount</div>
     <p></p>
-}*@
+}
 
-@*<div>총출고</div>
+<div>총출고</div>
 @foreach (var item in ViewBag.Stockedresult)
 {
     <div>상품명 : @item.ProductName</div>

@@ -24,6 +24,7 @@
                         <form asp-controller="Inventory" asp-action="create" enctype="multipart/form-data" method="post" class="row g-3">
                             @foreach (Product_Model product in Model)
                             {
+                                <input type="hidden" name="ProductId" value="@product.Id" />
                                 <div class="col-12">
                                     <label class="form-label">상품 이름</label>
                                     <div class="form-control">@product.Name</div>
@@ -36,13 +37,13 @@
                                     <label class="form-label">생산 일자</label>
                                     <input type="date" class="form-control" id="currentDate" name="CreateTime">
                                 </div>
-                                <p></p>
                             }
+                            <div class="col-12">
+                                <button class="btn btn-primary px-4">재고 등록</button>
+                            </div>
                         </form>
                         <p></p>
-                        <div class="col-12">
-                            <button class="btn btn-primary px-4">재고 등록</button>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

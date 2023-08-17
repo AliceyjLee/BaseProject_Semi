@@ -17,12 +17,9 @@
                             <form asp-controller="User" asp-action="UpdateUser" method="post" enctype="multipart/form-data" class="row g-3">
                                 <div class="col-12">
                                     <div> 등록 이미지 <img src="@Model.ImgUrl" style="width:150px; height:150px" /> </div>
-                                    <input type="file" name="file"></input>
+                                    <input type="file" name="file"/>
                                 </div>
-                                <div>
-                                    <label class="form-label">상품 이미지</label>
-                                    <input class="form-control" type="file" name="ImgFile" img src="@Model.ImgUrl" />
-                                </div>
+                                
                                 <div class="col-12">
                                     <label class="form-label">Name</label>
                                     <input name=UserName type="text" class="form-control" value="@Model.UserName"></input>
@@ -31,11 +28,12 @@
                                     <label class="form-label">Password</label>
                                     <input name=Password type="text" class="form-control" placeholder="Password"></input>
                                 </div>
-                                <div class="text-center align-self-md-center">
+                                <div class="text-lg-center">
                                     <button type="submit" class="btn btn-primary px-4">수정</button>
-                                    <button type="submit" class="btn btn-primary px-4">삭제</button>
+                                    <a class="btn btn-primary px-4" asp-route-id="@Model.Id" asp-controller="user" asp-action="Delete">회원탈퇴</a>
                                 </div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>

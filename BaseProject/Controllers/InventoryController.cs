@@ -57,7 +57,7 @@ namespace BaseProject.Controllers
                     {
                         ProductId = model.ProductId[i],
                         Count = model.Count[i],
-                        CreateTime = model.CreateTime,
+                        CreateTime = model.CreateTime[i],
                     };
                     _dbContext.Inventory_Models.Add(inventory_model);
                 }                
