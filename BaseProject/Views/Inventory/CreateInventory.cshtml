@@ -6,9 +6,7 @@
 
 
 
-<script>
-  document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-</script>
+
 
 <!--start content-->
 <main class="page-content">
@@ -26,7 +24,7 @@
                             {
                                 <input type="hidden" name="ProductId" value="@product.Id" />
                                 <div class="col-12">
-                                    <label class="form-label">상품 이름</label>
+                                    <label class="form-label" color="blue">상품 이름</label>
                                     <div class="form-control">@product.Name</div>
                                 </div>
                                 <div class="col-12">
@@ -35,8 +33,10 @@
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label">생산 일자</label>
-                                    <input type="date" class="form-control" id="currentDate" name="CreateTime">
+                                    <input type="date" class="form-control currentDate" id="currentDate" name="CreateTime">
                                 </div>
+                                <p></p>
+                                <hr width="100%" color="black" size="3">
                             }
                             <div class="col-12">
                                 <button class="btn btn-primary px-4">재고 등록</button>
@@ -49,6 +49,19 @@
             </div>
         </div>
     </div><!--end row-->
+
+    <script>
+            window.onload = function() {
+            var currentDates = document.getElementsByClassName('currentDate');
+            currentDates.forEach(function (currentDate) {
+                currentDate.value = new Date().toISOString().substring(0, 10);
+            });
+            }
+    </script>
+
+        
+
+
 
 </main>
 <!--end page main-->

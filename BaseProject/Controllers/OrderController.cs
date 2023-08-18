@@ -177,6 +177,8 @@ namespace BaseProject.Controllers
             {
                 var result = await _dbContext.Order_Models
                             .Where(o => o.Id == id)
+
+
                             .Include(p => p.OrderProducts)
                             .ThenInclude(p => p.Product)
                             .FirstAsync();

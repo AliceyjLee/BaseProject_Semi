@@ -39,8 +39,8 @@
                         <i class="fas fa-chart-area me-1"></i>
                         <h3>Boomerang</h3>
                     </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
+                    <div id="first" class="card-body">
+                        <div id="second" class="table-responsive">
                             <table class="table align-items-center">
                                 <thead class="table-light">
                                     <tr>
@@ -121,6 +121,29 @@
     });
 
 </script>
+
+<script src="/js/async.js">
+    sendRequest("Boomerang", "first", "second" )
+        
+</script>
+
+@*<script>
+    function sendRequest() {
+        var data = document.getElementById("data");
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+                var res = JSON.parse(httpRequest.responseText)
+                data.value = res[0]["id"]
+
+            };
+            httpRequest.open("GET", "/ex/getid?id=" + id, true);
+            httpRequest.send();
+        }
+    }
+
+</script>
+
 
 
 @*<style>

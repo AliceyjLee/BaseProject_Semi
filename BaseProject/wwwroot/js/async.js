@@ -1,13 +1,14 @@
 var curProduct = "noName";
-function sendRequest(productName) {
-    var httpRequest = new XMLHttpRequest();
+function sendRequest(productName, first, second) {
+    var httpRequest = new XMLHttpRequest(first, second);
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
             var res = JSON.parse(httpRequest.responseText)
+            var currentTable = document.getElementById(first);
+            var currenttestdiv = document.getElementById(second);
             // 새로운 상품 조회시 기존 상품 삭제 
             if (curProduct != productName) {
-                var currentTable = document.getElementById("table");
-                var currenttestdiv = document.getElementById("tablediv");
+
                 currenttestdiv.removeChild(currentTable);
                 var newTable = document.createElement("table");
                 newTable.setAttribute("id", "table");
@@ -31,8 +32,6 @@ function sendRequest(productName) {
 
                 newTr.appendChild(newTd1);
                 newTr.appendChild(newTd2);
-                var currentTable = document.getElementById("table");
-                var currenttestdiv = document.getElementById("tablediv");
                 currentTable.insertAdjacentElement("afterbegin", newTr);
             }
 

@@ -3,10 +3,7 @@
 *@
 @{
 }
-<script>
-    document.getElementById('RegisterDate').value = new Date().toISOString().substring(0, 10);
-    document.getElementById('EndDate').value = new Date().toISOString().substring(0, 10);
-</script>
+
 <!--start content-->
 <main class="page-content">
 
@@ -59,6 +56,13 @@
         </div>
     </div><!--end row-->
 
+            
+    <script>
+        window.onload = function () {
+        document.getElementById('RegisterDate').value = new Date().toISOString().substring(0, 10);
+        document.getElementById('EndDate').value = new Date().toISOString().substring(0, 10);            
+        }
+    </script>
 </main>
 <!--end page main-->
 
