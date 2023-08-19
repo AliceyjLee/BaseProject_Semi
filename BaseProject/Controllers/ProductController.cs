@@ -143,7 +143,7 @@ namespace BaseProject.Controllers
         public async Task<string> filter(string name)
         {
             // exmodel에 있는 name 의 데이터 10개만 가져온다
-            var result = _dbContext.ExModels
+            var result = _dbContext.IoT_Data_Models
                 .Include(x => x.Product)
                 .Where(x => x.Product.Name == name)
                 .OrderByDescending(x => x.CreateTime)
@@ -155,6 +155,7 @@ namespace BaseProject.Controllers
                 JObject jObject = new JObject();
                 jObject.Add("name", item.Product.Name);
                 jObject.Add("CreateTime", item.CreateTime);
+                jObject.Add("Count", item.Count);
                 jArray.Add(jObject);
             }
             return jArray.ToString();

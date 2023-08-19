@@ -272,48 +272,49 @@ namespace BaseProject.Data
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.Member));
                 if (!await roleManager.RoleExistsAsync(UserRoles.InventoryManager))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.InventoryManager));
-                if (!await roleManager.RoleExistsAsync(UserRoles.MateralManager))
-                    await roleManager.CreateAsync(new IdentityRole(UserRoles.MateralManager));
+                if (!await roleManager.RoleExistsAsync(UserRoles.MaterialManager))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.MaterialManager));
                 if (!await roleManager.RoleExistsAsync(UserRoles.ProductManager))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.ProductManager));
                 if (!await roleManager.RoleExistsAsync(UserRoles.OrderManager))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.OrderManager));
                 if (!await roleManager.RoleExistsAsync(UserRoles.NoRole))
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.NoRole));
-            }
-                ////Users
-                //var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-                //string adminUserEmail = "admin@web.com";
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<UserIdentity>>();
+                string adminUserEmail = "admin@web.com";
 
-                //var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
-                //if (adminUser == null)
+                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                if (adminUser == null)
+                {
+                    var newAdminUser = new UserIdentity()
+                    {
+                        Id = "admin",
+                        UserName = "Admin",
+                        Email = adminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    var result =  await userManager.CreateAsync(newAdminUser, "Dkagh1234!");
+                    var result2 = await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                }
+
+
+                //string appUserEmail = "user@web.com";
+
+                //var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                //if (appUser == null)
                 //{
-                //    var newAdminUser = new IdentityUser()
+                //    var newAppUser = new IdentityUser()
                 //    {
-                //        UserName = "admin-user",
-                //        Email = adminUserEmail,
+                //        UserName = "app-user",
+                //        Email = appUserEmail,
                 //        EmailConfirmed = true
                 //    };
-                //    await userManager.CreateAsync(newAdminUser, "Dkagh1234!?");
-                //    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
-                //}
-
-
-                //    string appUserEmail = "user@web.com";
-
-                //    var appUser = await userManager.FindByEmailAsync(appUserEmail);
-                //    if (appUser == null)
-                //    {
-                //        var newAppUser = new IdentityUser()
-                //        {
-                //            UserName = "app-user",
-                //            Email = appUserEmail,
-                //            EmailConfirmed = true
-                //        };
-                //        await userManager.CreateAsync(newAppUser, "Dkagh1234!");
-                //        await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
-                //    }
+                //    await userManager.CreateAsync(newAppUser, "Dkagh1234!");
+                //    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 //}
             }
-    }
+        }
+            
+    }    
 }

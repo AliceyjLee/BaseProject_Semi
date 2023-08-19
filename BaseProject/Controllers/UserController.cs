@@ -153,7 +153,7 @@ namespace BaseProject.Controllers
             roleList.Add(new SelectListItem { Text = "Admin", Value = UserRoles.Admin });
             roleList.Add(new SelectListItem { Text = "Member", Value = UserRoles.Member });
             roleList.Add(new SelectListItem { Text = "InventoryManager", Value = UserRoles.InventoryManager });
-            roleList.Add(new SelectListItem { Text = "MateralManager", Value = UserRoles.MateralManager });
+            roleList.Add(new SelectListItem { Text = "MaterialManager", Value = UserRoles.MaterialManager });
             roleList.Add(new SelectListItem { Text = "ProductManager", Value = UserRoles.ProductManager }); 
             roleList.Add(new SelectListItem { Text = "OrderManager", Value = UserRoles.OrderManager });
             roleList.Add(new SelectListItem { Text = "NoRole", Value = UserRoles.NoRole });
@@ -198,10 +198,11 @@ namespace BaseProject.Controllers
         {
             // 유저 정보 가져오기
             UserIdentity user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (user == null)
-            {
-                return Redirect("/user/Login");
-            }
+            //if (user == null)
+            //{
+            //    return Redirect("/user/Login");
+            //}
+            //return Redirect("/user/userlist");
             return View(user);
         }
         [HttpPost("UpdateUser")]

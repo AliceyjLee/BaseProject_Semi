@@ -26,12 +26,12 @@
         </div>
     </div>
 
-
+@*
     <h1 class="mt-4">실시간 생산 현황</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
-    </ol>
-    <div class="container-fluid px-4">
+    </ol>*@
+   @* <div class="container-fluid px-4">
         <div class="row">
             <div class="col-xl-6">
                 <div class="card mb-6">
@@ -39,13 +39,13 @@
                         <i class="fas fa-chart-area me-1"></i>
                         <h3>Boomerang</h3>
                     </div>
-                    <div id="first" class="card-body">
-                        <div id="second" class="table-responsive">
+                    <div class="card-body">
+                        <div class="table-responsive">
                             <table class="table align-items-center">
                                 <thead class="table-light">
-                                    <tr>
+                                    <tr>*@
 @*                                        <th>생산 일자</th>*@
-                                        <th>생산 수량</th>
+                                       @* <th>생산 수량</th>
                                 </thead>
 
                                  <tbody>
@@ -70,9 +70,9 @@
                         <div class="table-responsive">
                             <table class="table align-items-center">
                                 <thead class="table-light">
-                                    <tr>
+                                    <tr>*@
 @*                                        <th>생산 일자</th>*@
-                                        <th>생산 수량</th>
+                                        @*<th>생산 수량</th>
                                 </thead>
                                 <tbody>
                                     <tr>
@@ -86,7 +86,8 @@
                 </div>
             </div>
         </div>
-    </div><!--end row-->
+    </div>*@
+    <!--end row-->
 
 </main>
 <!--end page main-->
@@ -122,10 +123,7 @@
 
 </script>
 
-<script src="/js/async.js">
-    sendRequest("Boomerang", "first", "second" )
-        
-</script>
+
 
 @*<script>
     function sendRequest() {

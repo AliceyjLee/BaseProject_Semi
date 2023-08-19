@@ -12,11 +12,14 @@
                 <div class="card-header py-3 bg-transparent">
                     <h5 class="mb-0">사용자 권한 정보</h5>
                 </div>
-                 @foreach (var user in Model)
-                    {
+                 
+                    
                         <div class="card-body">
                             <div class="border p-3 rounded">
-                                <form asp-controller="User" asp-action="RollAccept" method="post" enctype="multipart/form-data" class="row g-3">
+                        <form asp-controller="User" asp-action="RollAccept" method="post" enctype="multipart/form-data" class="row g-3">
+                         @foreach (var user in Model)
+                        {
+                                
                                     <div class="col-12">
                              
                                             <div class="col-12">
@@ -38,15 +41,19 @@
                                             <div class="col-12">
                                         <input name="BeforeRole" type="hidden" value="@user.Role">
                                             </div>
-                                            <div class="col-12 align-self-md-center" style="padding-top: 10px;">
-                                                <button type="submit" class="btn btn-primary px-4">사용자 권한 수정</button>
-                                            </div>
+                                            
                                         
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                               
+                        }
+                                    <div class="col-12 align-self-md-center" style="padding-top: 10px;">
+                                        <button type="submit" class="btn btn-primary px-4">사용자 권한 수정</button>
+                                    </div>
+                         </form>
+                            
                         </div>
-                    }
+                   
             </div>
         </div>
     </div><!--end row-->

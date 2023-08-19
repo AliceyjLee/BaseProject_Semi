@@ -11,6 +11,7 @@ namespace BaseProject.Controllers
     [Route("ex")]
     public class ExController : Controller
     {
+        int index = 1;
         //private readonly IExService _exService;
         private readonly BaseDbContext _dbContext;
         public ExController( BaseDbContext dbContext) 
@@ -39,14 +40,20 @@ namespace BaseProject.Controllers
         }
         [HttpGet("createEx")]
         public async Task<string> CreateEx() 
-        { 
-            await _dbContext.ExModels.AddAsync(new ExModel() 
-            { 
-                ProductId = 1,
-                CreateTime = DateTime.Now
+        {
+            //if (index % 2 == 0)
+            //{
+                
+            //}
+            //await _dbContext.IoT_Data_Models.Where(i => i.ProductId == 1).FirstAsync();
+            //    (new IoT_Data_Model() 
+            //{
 
-            });
-            await _dbContext.SaveChangesAsync();
+            //    ProductId = 1,
+            //    CreateTime = DateTime.Now
+
+            //});
+            //await _dbContext.SaveChangesAsync();
 
             return "success";
         }
